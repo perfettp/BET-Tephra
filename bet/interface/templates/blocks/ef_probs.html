@@ -1,0 +1,13 @@
+{% import 'bet_macros.html' as betm %}
+<div class="row">
+    <div class="col-lg-12 sv_block sv_block_title">
+{{ betm.header_link('Time evolution of the monthly probability based on nearly real-time observations', run_dir,
+'/block/ef_probs', rendering_page) }}
+                 </div>
+</div>
+<div class="row">
+     <div class="col-lg-12 sv_block">
+<img src="{{ef_prob_plot}}"
+     alt="BetEF probs" class="img-responsive"/>
+                   </div>
+ </div>

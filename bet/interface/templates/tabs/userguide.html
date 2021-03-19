@@ -1,0 +1,293 @@
+<div class="row" align="left">
+    <div class="col-lg-8 col-lg-offset-2"
+         style="padding-top:2em; background-color: #f5f5f5;">
+        <div style="text-align: center">
+
+            <span class="guide_title">
+            User’s guide for the BET-Tephra@OV software package
+            </span>
+            </div>
+    </div>
+</div>
+
+<div class="row" align="left">
+    <div class="col-lg-8 col-lg-offset-2 guide_col"
+         style="background-color: #f5f5f5;">
+<p lang="en-GB" style="margin-bottom: 0cm; line-height: 100%"><br>
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="it-IT"><b>by
+Paolo Perfetti  (1),  Jacopo Selva (1),  Laura Sandri  (1), Giovanni
+Macedonio (2), Roberto Tonini (3), Antonio Costa (1)</b></span></font></font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="it-IT"><b>(1)
+INGV, Bologna </b></span></font></font>
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="it-IT"><b>(2)
+INGV-Osservatorio Vesuviano, Napoli</b></span></font></font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>(3)
+INGV, Roma</b></span></font></font></p>
+<p lang="en-GB" style="margin-bottom: 0cm; line-height: 100%"><br></p>
+        <p lang="en-GB" class="western" style="margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><i><b>User's
+guide updated on 19/07/2016, Bologna</b></i></font></font></p>
+<p lang="en-GB" style="margin-bottom: 0cm; line-height: 100%"><br>
+</p>
+<p align="justify" style="margin-bottom: 0cm;
+   line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">BET-Tephra@OV
+is a Python software package to compute and visualize long- and
+short- term eruption forecasting and probabilistic tephra hazard
+assessment of Campi Flegrei caldera. The tool is based on the
+procedure described by Selva et al. (2014) that combines the Bayesian
+Event Tree method (Marzocchi et al. 2008; 2010) and on the Fall3D
+tephra dispersal model (Costa et al. 2006; Folch et al., 2009). </span></font></font>
+</p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="it-IT">It
+was realized by Dr. Perfetti with the contributions by Dr. Costa, Dr.
+Selva, Dr. Sandri, Dr. Macedonio, and Dr. Tonini, in the framework of
+the Italian Civil Protection Department  (DPC) - INGV Research
+Project </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="it-IT"><i>“OBIETTIVO
+5 (V2): Implementazione nell’ambito delle attività di
+sorveglianza del vulcano Campi Flegrei di una procedura operativa per
+la stima in tempo quasi reale della probabilità di eruzione,
+probabilità di localizzazione della bocca eruttiva, e probabilità
+di accumulo delle ceneri al suolo in caso di eruzione di tipo
+esplosivo”</i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="it-IT">,
+2014-2015 (Responsible Dr. Giuseppe De Natale, Director of INGV -
+Osservatorio Vesuviano, Napoli),  under the Coordination of Dr.
+Antonio Costa (INGV, Bologna).</span></font></font></p>
+<p lang="it-IT" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">The
+software package is composed of different components that are
+designed to: </span></font></font>
+</p>
+<ol>
+	<li><p align="justify" style="margin-bottom: 0cm; line-height: 100%">
+	<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">gathering
+	available monitoring parameter values, </span></font></font>
+	</p>
+	<li><p align="justify" style="margin-bottom: 0cm; line-height: 100%">
+	<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">downloading
+	and converting data from weather forecast, </span></font></font>
+	</p>
+	<li><p align="justify" style="margin-bottom: 0cm; line-height: 100%">
+	<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">evaluating
+	the state of the volcano (eruption forecasting) based on monitoring
+	and long-term information, including the position of the vent (in
+	probabilistic terms), </span></font></font>
+	</p>
+	<li><p align="justify" style="margin-bottom: 0cm; line-height: 100%"><a name="_GoBack"></a>
+	<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">estimating
+	the tephra load distribution (for the three different eruption sizes
+	and in probabilistic terms). </span></font></font>
+	</p>
+</ol>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">The
+main program execution (update of parameter gathering, probabilistic
+estimation of pre-eruptive and eruptive stages, tephra load modelling
+and statistical mixing of long- and short-term data) is scheduled
+regularly. In case of a low to moderate volcanic activity, the
+execution is launched every 12 hours. </span></font></font>
+</p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">The
+web interface component displays a bar on the top showing the last
+run (reporting execution date and time), and allowing the selection
+of the results achieved at previous simulations by using the
+right/left arrows (rendered on web page only if successive/previous
+runs are available). The main page contains multiple tabs:</span></font></font></p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>1.
+Overview</b></span></font></font></p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">This
+is the main visualization, divided into 2 main sections: </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>State
+of the Volcano</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+and </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>Tephra
+Hazard Assessment</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">.</span></font></font></p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>-
+State of the Volcano</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i>:
+</i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">this
+section (light green background colour) displays a list consisting of
+a summary of the anomalies in the monitored parameters (on the left
+side). The central plots display the temporal evolution of
+conditional probabilities for </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Unrest</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>,
+</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Magmatic
+Unrest</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i>,</i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+and </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Eruption</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+for the last 30 days, computed adopting the method presented in Selva
+et al. (2012a) with the elicitation parameters updated in 2015. </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>The
+values refer to the monthly absolute probabilities of each node</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i>.
+</i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">Further
+information, including the detailed parameter values retrieved from
+the monitoring network, is presented in the dedicated tab </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>Parameters</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+(see below).</span></font></font></p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">The
+plot on the right side shows the </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>conditional
+probability map of vent opening locations</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">,
+based on the statistical mixing of the short- and long-term maps. The
+former is based on the localization of detected anomalies (if any) in
+the parameters that are deemed as relevant in informing the position
+of the vent. The latter is based on historical, geological and
+morphological data (Selva et al., 2012b).</span></font></font></p>
+<p lang="en-GB" style="margin-left: 1.27cm; margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-left: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>-
+Tephra Hazard Assessment</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">:
+in this section (light yellow background colour), three maps are
+shown, representing different tephra load distributions. </span></font></font>
+</p>
+<p align="justify" style="margin-left: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">The
+plot on the </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><u>left
+side</u></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+(</span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Predicted
+tephra loading</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">)</span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>
+</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">shows
+the tephra loading associated to a medium size eruption (e.g., the
+reference scenario for the DPC) from the caldera centre simulated
+using the Fall3d model (maps relative to other sizes are available by
+clicking on the second tab “</span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>Fall3d</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">”,
+see below). The </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><u>central
+plot</u></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+shows the </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Mean
+hazard map</b></i></span></font></font><sup><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>(*)</b></i></span></font></font></sup><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>
+at 5% of conditional exceedance probability</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+(conditional to the occurrence of one eruption of whatever size in
+whatever vent position) calculated over the selected 24 hours
+interval. The plot on the </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><u>right
+side</u></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+describes the </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Mean
+hazard map</b></i></span></font></font><sup><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>(*)</b></i></span></font></font></sup><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>
+at 1% of absolute exceedance probability</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+calculated over the selected 24 hours interval. </span></font></font>
+</p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">-
+The </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Time
+offset</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+menu, next to the section title on the left side, gives the
+possibility to switch over different forecast intervals. </span></font></font>
+</p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>2.
+Fall3d:</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+this tab collects the maps created by the Fall3d program execution,
+for three different eruption sizes (Small, Medium, Large) and time
+offsets (24-48), assuming a vent at the centre of the caldera. Model
+runs use the available weather forecast data, downloaded on demand
+from the ARPA-SIM servers; the simulations are executed independently
+from the BET suite. Also in this tab it is possible to choose the
+time offset, exploring tephra loading simulations over a few days.</span></font></font></p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>3.
+Parameters:</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+in this tab, the values of the monitored parameters and thresholds
+configured during the last elicitation are reported. The parameter
+values are reported separated for each different node (</span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Unrest</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>,
+</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Magmatic
+Unrest</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i>,</i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+and </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><i><b>Eruption</b></i></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">).
+In case of partial anomaly, the affected parameters will be
+highlighted using orange text, while red is used for full anomalies.
+For each node, the probability distributions (cumulative distribution
+functions, CDF) quantifying the epistemic uncertainty on the
+</span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>conditional
+probability</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+at each node are also plotted on top of the parameters list. For each
+CDF, also the main percentiles (16/50/84%) and the mean values are
+visualized. </span></font></font>
+</p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>4.
+Suite Log:</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+in this tab, the suite execution log is presented, useful to monitor
+the processes and to debug the procedure.</span></font></font></p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>5</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>.
+</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>User
+guide</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>:</b></span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">
+in this last tab, the </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">user
+can find this guide.</span></font></font></p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%"><sup><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">(*):</span></font></font></sup><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB">Hazard
+map is meant as the map of intensity (e.g., tephra loading) whose
+probability of exceedance equals the defined probability threshold</span></font></font></p>
+<p lang="en-GB" style="margin-left: 1.27cm; margin-bottom: 0cm; line-height: 100%">
+<br>
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font face="Times New Roman, serif"><font size="2" style="font-size: 11pt"><span lang="en-GB"><b>References
+</b></span></font></font>
+</p>
+<p align="justify" style="text-indent: 0.63cm; margin-bottom: 0cm"><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="en-GB">Costa
+A., Macedonio G., Folch A. (2006) A three-dimensional Eulerian model
+for transport and deposition of volcanic ashes. Earth Planet. Sci.
+Lett., 241, 634/647, doi: 10.1016/j.epsl.2005.11.019</span></font></font></p>
+<p align="justify" style="text-indent: 0.63cm; margin-bottom: 0cm"><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="en-GB">Folch
+A., Costa A., Macedonio G. (2009) FALL3D: A Computational Model for
+Volcanic Ash Transport and Deposition, Comput. Geosci., 35,
+1334-1342, doi:10.1016/j.cageo.2008.08.008</span></font></font></p>
+<p align="justify" style="text-indent: 0.63cm; margin-bottom: 0cm"><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="it-IT">Marzocchi
+W, Sandri L, Selva J (2008). </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="en-GB">BET_EF:
+a probabilistic tool for long- and short-term eruption forecasting,
+Bull. Volcan., 70, 623-632, doi:10.1007/s00445-007-0157-y</span></font></font></p>
+<p align="justify" style="text-indent: 0.63cm; margin-bottom: 0cm"><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="en-GB">Marzocchi
+W, Sandri L, Selva J (2010), BET_VH: a probabilistic tool for
+long-term volcanic hazard assessment, Bull. Volcanol., 72 (6),
+717-733, doi:</span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt">10.1007/s00445-010-0357-8</font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="en-GB">
+</span></font></font>
+</p>
+<p align="justify" style="text-indent: 0.63cm; margin-bottom: 0cm"><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="en-GB">Selva
+J., Costa A., Sandri L., Macedonio G., Marzocchi W. (2014)
+Probabilistic short-term volcanic hazard in phases of unrest: a case
+study for tephra fallout,  J. Geophys. Res., 119 (12), 1-22,
+doi:10.1002/2014JB011252</span></font></font></p>
+<p align="justify" style="text-indent: 0.63cm; margin-bottom: 0cm"><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt">Selva
+J, Marzocchi W, Papale P, Sandri L (2012a), Operational eruption
+forecasting at high-risk volcanoes: the case of Campi Flegrei,
+Naples, J. Applied Volcanology, 1:5, doi:10.1186/2191-5040-1-5</font></p>
+
+<p align="justify" style="text-indent: 0.63cm; margin-bottom: 0cm"><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="it-IT">Selva
+J., Orsi G., Di Vito M.A., Marzocchi W., and L. Sandri (2012b).
+</span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="en-GB">Probability
+hazard map for future vent opening at the Campi Flegrei caldera,
+Italy. </span></font></font><font face="Times New Roman, serif"><font size="2" style="font-size: 10pt"><span lang="it-IT">Bull
+Volcanol, 74:497–510, doi:10.1007/s00445-011-0528-2.</span></font></font></p>
+    </div>
+</div>
+<div class="row" align="left">
+    <div class="col-lg-8 col-lg-offset-2"
+         style="padding-top:2em; background-color: #f5f5f5;">
+        <div style="text-align: center">
+        <a href="{{userguide_pdf}}" target="_blank">Download User's guide</a><br>
+        </div>
+    </div>
+</div>

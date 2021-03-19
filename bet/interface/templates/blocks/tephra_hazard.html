@@ -1,0 +1,32 @@
+{% import 'bet_macros.html' as betm %}
+
+<div class="row th_header">
+    <div id="th_title_col" class="offset_header col-lg-12">
+        <span class="th_title">Tephra Hazard Assessment</span>
+    </div>
+</div>
+
+<div class="row th_header">
+    <div class="offset_header col-lg-12">
+        {{ betm.offset_bar("dashboard_offset_tabs", "th_", offset_dirs) }}
+    </div>
+</div>
+
+<div class="tab-content">
+    {% for off in offset_dirs %}
+        {% set off_end=off|int+24 %}
+        <div role="tabpanel" class="tab-pane fade" id="th_{{off}}_tab">
+            <div class="row vh_row" >
+                <div id="tephra" class="col-lg-4 vh_block">
+                    {% include 'blocks/tephra.html' %}
+                </div>
+                <div id="bet_vh_cond" class="col-lg-4 vh_block">
+                    {% include 'blocks/vh_cond_prob.html' %}
+                </div>
+                <div id="bet_vh_abs" class="col-lg-4 vh_block">
+                    {% include 'blocks/vh_abs_prob.html' %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

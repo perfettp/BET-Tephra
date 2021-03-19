@@ -1,0 +1,277 @@
+
+// Ottimizzazione per schermi FullHD
+@media screen and (min-width: 1900px) {
+        .container-fluid {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .container .jumbotron, .container-fluid .jumbotron {
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 0.2em;
+            margin-bottom: 0.2em;
+            padding-bottom: 0.2em;
+            padding-top: 0.2em;
+        }
+
+};
+
+.container-fluid {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+.run_row {
+    background: #cccccc;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav label {
+    width: 200px;
+    height: 100%;
+    display: none;
+    position: absolute;
+
+	opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+
+    transition: opacity .2s;
+
+    color: #FFF;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 380px;
+    font-family: "Varela Round", sans-serif;
+    background-color: rgba(255, 255, 255, .3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+
+
+
+
+.google-map-canvas  {
+    // .box-sizing(content-box);
+    // width:100%;
+    height:400px;
+}
+
+
+//.gmaps_legend {
+//    background: white;
+//    padding: 10px;
+//}
+
+.map_legend {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+      }
+.map_legend h3 {
+        margin-top: 0;
+}
+.map_legend img {
+        vertical-align: middle;
+}
+
+.input-color {
+    position: relative;
+}
+.input-color input {
+    padding-left: 20px;
+}
+.input-color .color-box {
+    width: 10px;
+    height: 10px;
+    // display: inline-block;
+    background-color: #ccc;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+div.gmaps_row {
+    height:100%;
+}
+
+html, body, #myrowid, #myrowid .col-xs-6 { height: 100% }
+
+.node_anomalies {
+  text-align:left;
+}
+
+.partial_anomaly {
+    font-variant: small-caps;
+    color: orange;
+    align: left;
+}
+
+.full_anomaly {
+    font-variant: small-caps;
+    color: red;
+    align: left;
+}
+
+.no_anomaly {
+    align: left;
+}
+
+.anomaly_title {
+    align: left;
+    font-variant: small-caps;
+    font-style: italic;
+}
+
+.btn-xl {
+    padding: 15px 22px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 6px
+}
+
+//  begin stacked bar demo css
+body {
+  font: 10px sans-serif;
+  height: 100%;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
+}
+//  end stacked bar demo css
+
+
+// begin confidence demo css
+svg {
+  font: 14px 'Open Sans';
+  margin-left: auto; margin-right: auto;
+  display: block;
+}
+
+line,
+rect {
+    shape-rendering: crispEdges;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.divider {
+    stroke: #777;
+    stroke-dasharray: 5,5;
+    opacity: 0.7;
+}
+
+.line {
+    fill: none;
+    stroke-width: 1.5px;
+}
+
+circle.dot {
+    fill: #FFF;
+    stroke-width: 1.5px;
+}
+
+.area.confidence {
+    zoom: 1;
+    filter: alpha(opacity=30);
+    opacity: 0.3;
+}
+
+// end confidence demo css
+
+// begin trend demo css
+.axis text {
+  fill: #000;
+}
+
+.axis .tick line {
+  stroke: rgba(0, 0, 0, 0.1);
+}
+
+.area {
+  stroke-width: 1;
+}
+
+.area.outer,
+.legend .outer {
+  fill: rgba(230, 230, 255, 0.8);
+  stroke: rgba(216, 216, 255, 0.8);
+}
+
+.area.inner,
+.legend .inner {
+  fill: rgba(127, 127, 255, 0.8);
+  stroke: rgba(96, 96, 255, 0.8);
+}
+
+.median-line,
+.legend .median-line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3;
+}
+
+.legend .legend-bg {
+  fill: rgba(0, 0, 0, 0.5);
+  stroke: rgba(0, 0, 0, 0.5);
+}
+
+.marker.client .marker-bg,
+.marker.client path {
+  fill: rgba(255, 127, 0, 0.8);
+  stroke: rgba(255, 127, 0, 0.8);
+  stroke-width: 3;
+}
+
+.marker.server .marker-bg,
+.marker.server path {
+  fill: rgba(0, 153, 51, 0.8);
+  stroke: rgba(0, 153, 51, 0.8);
+  stroke-width: 3;
+}
+
+.marker path {
+  fill: none;
+}
+
+.legend text,
+.marker text {
+  fill: #fff;
+  font-weight: bold;
+}
+
+.marker text {
+  text-anchor: middle;
+}
+
+// end trend demo css
+
+// .map {
+//    height: 400px;
+//    width: 100%;
+// }
+

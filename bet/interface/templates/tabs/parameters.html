@@ -1,0 +1,57 @@
+<div class="row">
+    {% for node in parameters_report.nodes %}
+<div class="col-lg-4 node_anomalies">
+    <h3>Node {{loop.index}}: {{node.name}}</h3>
+    <div>
+        <img src="{{ url_for('custom_static', run_dir=run_dir, filename='/bet_ef_'+node.name|lower()+'.png') }}" alt="BetEF probs" class="img-responsive"/>
+    </div>
+    <div>
+    <ul>
+        {% for param in node.parameters %}
+          {% if param.relation != '='  %}
+            {% if param.part_anomaly %}
+            <li><div class="partial_anomaly">
+                {{param.name}}:
+                val: {{'%0.3f'| format(param.value|float)}}
+                rel: {{param.relation}}
+                th1: {{param.threshold_1}}
+                th2: {{param.threshold_2}}
+            </div></li>
+            {% elif param.full_anomaly %}
+             <li><div class="full_anomaly">
+                {{param.name}}:
+                val: {{'%0.3f'| format(param.value|float)}}
+                rel: {{param.relation}}
+                th1: {{param.threshold_1}}
+                th2: {{param.threshold_2}}
+            </div></li>
+            {% else %}
+            <li><div>
+                {{param.name}}:
+                val: {{'%0.3f'| format(param.value|float)}}
+                rel: {{param.relation}}
+                th1: {{param.threshold_1}}
+                th2: {{param.threshold_2}}
+            </div></li>
+            {% endif %}
+          {%else%}
+            {% if param.full_anomaly %}
+            <li><div class="full_anomaly">
+                Boolean {{param.name}}:
+                val: {{param.value|int}}
+            </div></li>
+            {% else %}
+            <li><div>
+                Boolean {{param.name}}:
+                val: {{param.value|int}}
+            </div></li>
+            {% endif %}
+          {%endif%}
+
+        {% endfor %}
+
+    </ul>
+    </div>
+</div>
+    {% endfor %}
+</div>

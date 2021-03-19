@@ -1,0 +1,41 @@
+{% import 'bet_macros.html' as betm %}
+{% set off_end=off|int+24 %}
+<div class="row">
+    <div class="col-lg-12 vh_block th_block_title">
+        {{ betm.header_link('Mean hazard map at 1% absolute exceedance probability '+ off+'-'+off_end|string,
+        run_dir, '/block/vh_abs_prob?offset='+off, rendering_page) }}
+    </div>
+</div>
+<div class="row">
+     <div class="col-lg-12 ef_block">
+
+{% if style=='gmaps' %}
+<div id="vh_abs_legend" class="map_legend"><h3>Legend</h3></div>
+<div id="vh_abs_map" class="google-map-canvas"></div>
+{% elif style=='ol' %}
+<!--<div id="vh_cond_legend" class="map_legend"><h3>-->
+    <!--Legend</h3></div>-->
+<div id="vh_abs_map_{{off}}" class="map-canvas">
+<div id="vh_abs_legend_{{off}}" class="map_legend"><h3>Legend</h3></div>
+</div>
+
+<script>
+ window.onload=(function(oldLoad){
+                return function(){
+                    oldLoad && oldLoad();
+                    render_map("vh_abs_map_{{off}}", "vh_abs_legend_{{off}}",
+            "{{url_for('custom_static',run_dir=run_dir,filename=off + '/' +
+            vh_abs_p_kml)}} ");
+                    }
+                })(window.onload)
+</script>
+
+
+{% else %}
+<img
+        src="{{url_for('custom_static',run_dir=run_dir,filename=off + '/' + vh_abs_plot)}}"
+     alt="BetVH abs plot" class="img-responsive"/>
+{% endif %}
+
+         </div>
+ </div>

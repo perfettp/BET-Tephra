@@ -1,0 +1,144 @@
+{%- extends "base.html" %}
+{% import 'macros.html' as macros %}
+
+
+{% block scripts %}
+    {{super()}}
+    <script src="{{url_for('static', filename='js/d3.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/ol.js')}}"></script>
+    <script src="{{url_for('static', filename='js/magma.js')}}"></script>
+    <script src="{{url_for('static', filename='js/sel-vent-map.js')}}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/nanobar/0.2.1/nanobar.min.js"></script>
+    <script src="{{url_for('static', filename='js/async.js')}}"></script>
+
+{% endblock %}
+
+
+{% block title %}BET Parameters Configuration{% endblock %}
+{% block content %}
+<div class="page-header"><h1>Bet@OV</h1></div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <!--<form method="POST" action="{{ form_action }} " role="form" class="form-horizontal">-->
+            <form method="POST" onSubmit="return start_long_task()" role="form" class="form-horizontal">
+                {{ form.hidden_tag() if form.hidden_tag }}
+                {# {% for fam_key, fam_dict in mon_conf.elicitation_conf.parameters.iteritems() %}
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+                        <div class="page-header"><h3>{{ fam_key }} Parameters</h3></div>
+                        {% for p_name, p_obj in fam_dict.iteritems() %}
+
+                            {% if (p_obj.threshold_1 == p_obj.threshold_2)
+                                and (p_obj.threshold_1 == 1 ) %}
+                                {{ macros.render_checkbox_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% else %}
+                                {{ macros.render_bet_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% endif %}
+
+                        {% endfor %}
+                    </div>
+
+                {% endfor %}
+                #}
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 ">
+                    <div class="page-header"><h3>Seismic Parameters</h3></div>
+                        {% for p_name, p_obj in mon_conf.elicitation_conf.parameters['Seismic'].iteritems() %}
+
+                            {% if (p_obj.threshold_1 == p_obj.threshold_2)
+                                and (p_obj.threshold_1 == 1 ) %}
+                                {{ macros.render_checkbox_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% else %}
+                                {{ macros.render_bet_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% endif %}
+
+                        {% endfor %}
+
+                </div>
+                <div class="hidden-xs col-sm-1 col-md-2 col-lg-2 " ></div>
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 ">
+                    <div class="page-header"><h3>New fracture location</h3></div>
+                    <div class="span4"> <div id="sel_vent_map" class="map" />
+                    </div>
+                    <div class="page-header"><h3>Deformation Parameters</h3></div>
+                        {% for p_name, p_obj in mon_conf.elicitation_conf.parameters['Deformation'].iteritems() %}
+
+                            {% if (p_obj.threshold_1 == p_obj.threshold_2)
+                                and (p_obj.threshold_1 == 1 ) %}
+                                {{ macros.render_checkbox_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% else %}
+                                {{ macros.render_bet_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% endif %}
+
+                        {% endfor %}
+                    <div class="page-header"><h3>Geochemical Parameters</h3></div>
+                        {% for p_name, p_obj in mon_conf.elicitation_conf.parameters['Geochemical'].iteritems() %}
+
+                            {% if (p_obj.threshold_1 == p_obj.threshold_2)
+                                and (p_obj.threshold_1 == 1 ) %}
+                                {{ macros.render_checkbox_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% else %}
+                                {{ macros.render_bet_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% endif %}
+
+                        {% endfor %}
+
+                    <div class="page-header"><h3>Misc Parameters</h3></div>
+                        {% for p_name, p_obj in mon_conf.elicitation_conf.parameters['Misc'].iteritems() %}
+
+                            {% if (p_obj.threshold_1 == p_obj.threshold_2)
+                                and (p_obj.threshold_1 == 1 ) %}
+                                {{ macros.render_checkbox_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% else %}
+                                {{ macros.render_bet_field(form[p_obj.name],
+                                                                label_visible=true,
+                                                                placeholder=p_obj.value,
+                                                                bet_param=p_obj) }}
+                            {% endif %}
+
+                        {% endfor %}
+
+                    <button type="submit" class="btn btn-xl">Submit</button>
+                </div>
+                </form>
+
+        </div>
+        <!--<div class="row-fluid">-->
+            <!--<div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">-->
+                    <!--<div class="jumbotron"><h2>Sample time {{ sample_data_str }}</h2>-->
+                    <!--<div id="distributions">-->
+                        <!--<h4>Magma</h4>-->
+                        <!--<div id="magma_chart" />-->
+                    <!--</div>-->
+                    <!--<div id="vent_map" />-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div> -->
+    </div>
+{%- endblock %}

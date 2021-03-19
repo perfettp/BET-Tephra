@@ -1,0 +1,72 @@
+{# This simple template derives from ``base.html``. See ``base.html`` for
+   more information about template inheritance. #}
+{%- extends "base.html" %}
+
+
+{# Inside the ``content`` is where you should place most of your own stuff.
+   This will keep scripts at the page end and a navbar you add on later
+   intact. #}
+{% block scripts %}
+    {{super()}}
+    <script> window.onload=(function(oldLoad){
+                return function(){
+                    oldLoad && oldLoad();
+                    page_tab_bind();
+                    }
+                })(window.onload)
+    </script>
+
+{% endblock %}
+
+
+
+{# Loads some of the macros included with Flask-Bootstrap. We are using the
+   utils module here to automatically render Flask's flashed messages in a
+   bootstrap friendly manner #}
+{% import "bootstrap/utils.html" as utils %}
+
+
+{% block styles -%}
+    {{super()}}
+{% endblock %}
+
+{% block content %}
+{% set rendering_page=true %}
+{% import 'bet_macros.html' as betm %}
+
+<div class="fill">
+    <div id="main" class="container-fluid bet_results">
+        <div class="jumbotron bet_container" align="center">
+            <div id="bet_date" class="row bet_row">
+                {% include 'blocks/header.html' %}
+            </div>
+            <ul class="nav nav-tabs" role="tablist" id="page_tabs">
+              <li class="active"><a data-toggle="tab" href="#bet_home">Overview</a></li>
+              <li><a data-toggle="tab" href="#tephra_fall3d">Fall3d</a></li>
+              <li><a data-toggle="tab" href="#parameters_tab">Parameters</a></li>
+              <li><a data-toggle="tab" href="#suitelog_tab">Suite Log</a></li>
+              <li><a data-toggle="tab" href="#userguide_tab">User's Guide</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="bet_home">
+                    {% include 'tabs/dashboard.html' %}
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="tephra_fall3d">
+                    {% include 'tabs/fall3d.html' %}
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="parameters_tab">
+                    {% include 'tabs/parameters.html' %}
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="suitelog_tab">
+                    {% include 'tabs/suitelog.html' %}
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="userguide_tab">
+                    {% include 'tabs/userguide.html' %}
+                </div>
+                {{ betm.disclaimer(disclaimer) }}
+            </div>
+        </div>
+    </div>
+
+</div>
+{%- endblock %}

@@ -1,0 +1,48 @@
+
+<div class="row">
+     <div class="col-lg-12 vh_block">
+
+     </div>
+ </div>
+
+
+
+{% import 'bet_macros.html' as betm %}
+{% set off_end=off|int+24 %}
+<div class="row">
+    <div class="col-lg-12 vh_block th_block_title">
+        {{ betm.header_link('Predicted tephra loading for a medium size
+        eruption from a fixed vent '+off+'-'+off_end|string, run_dir, '/block/tephra?offset='+off, rendering_page) }}
+    </div>
+</div>
+
+<div class="row">
+     <div class="col-lg-12 ef_block">
+
+{% if style=='gmaps' %}
+<div id="tephra_legend" class="map_legend"><h3>Legend</h3></div>
+<div id="tephra_map" class="google-map-canvas"></div>
+{% elif style=='ol' %}
+<div id="tephra_map_{{off}}" class="map-canvas">
+<div id="tephra_legend_{{off}}" class="map_legend"><h3>Legend</h3></div>
+</div>
+
+<script>
+ window.onload=(function(oldLoad){
+                return function(){
+                    oldLoad && oldLoad();
+                    render_map("tephra_map_{{off}}", "tephra_legend_{{off}}",
+            "{{url_for('custom_static',run_dir=run_dir,filename=off + '/' +
+            tephra_p_kml)}} ");
+                    }
+                })(window.onload)
+</script>
+
+
+{% else %}
+         <img src="{{url_for('custom_static',run_dir=run_dir,filename=off + '/' + tephra_plot)}}"
+      alt="Tephra plot" class="img-responsive"/>
+{% endif %}
+
+         </div>
+ </div>

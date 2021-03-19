@@ -1,0 +1,19 @@
+{% import 'bet_macros.html' as betm %}
+
+<div class="row sv_header">
+    <div id="sv_title_col" class="col-lg-12 sv_header">
+        <span class="sv_title">State of the Volcano</span>
+    </div>
+</div>
+
+<div id="bet_sv_row" class="row sv_row" >
+    <div id="ef_anomalies" class="col-lg-4 sv_block">
+        {% include 'blocks/anomalies.html' %}
+    </div>
+    <div id="bet_ef_probs" class="col-lg-4 sv_block">
+        {% include 'blocks/ef_probs.html' %}
+    </div>
+    <div id="bet_ef_map" class="col-lg-4 sv_block">
+        {% include 'blocks/vent_map.html' %}
+    </div>
+</div>

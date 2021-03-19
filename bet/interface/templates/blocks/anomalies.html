@@ -1,0 +1,41 @@
+{% import 'bet_macros.html' as betm %}
+<div class="row">
+    <div class="col-lg-12 sv_block sv_block_title">
+{{ betm.header_link('Parameter anomalies', run_dir, '/block/anomalies', rendering_page) }}
+         </div>
+</div>
+<div class="row">
+     <div class="col-lg-12 sv_block">
+  {% for na in node_anomalies %}
+      {% if na.part_n > 0 or na.full_n > 0  %}
+        <div class="node_anomalies">
+          <div><h4 class="anomaly_title">On node {{loop.index}} {{na.name}}</h4>
+          <ul><li>
+            {% if na.part_n == 1 %}
+              <span class="partial_anomaly">1 partial anomaly, </span>
+            {% elif na.part_n > 1  %}
+              <span class="partial_anomaly">{{na.part_n}} partial anomalies,
+              </span>
+            {% else %}
+              <span class="no_anomaly">No partial anomalies, </span>
+            {% endif %}
+          </li><li>
+            {% if na.full_n == 1 %}
+              <span class="full_anomaly">1 full anomaly.</span>
+            {% elif na.full_n > 1  %}
+              <span class="full_anomaly">{{na.full_n}} full anomalies.</span>
+            {% else %}
+              <span class="no_anomaly">No full anomalies.</span>
+            {% endif %}
+          </li></ul>
+         </div>
+        </div>
+      {% else %}
+        <div class="node_anomalies"><h4 class='anomaly_title'>No anomalies on
+          node
+          {{loop.index}}
+          ({{na.name}}) or successives.</h4></div>
+      {% endif %}
+  {% endfor %}
+           </div>
+ </div>

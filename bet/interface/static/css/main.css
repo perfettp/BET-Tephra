@@ -1,0 +1,134 @@
+.node_anomalies {
+  text-align:left;
+}
+
+.partial_anomaly {
+    font-variant: small-caps;
+    color: orange;
+    align: left;
+}
+
+.full_anomaly {
+    font-variant: small-caps;
+    color: red;
+    align: left;
+}
+
+.no_anomaly {
+    align: left;
+
+}
+
+.anomaly_title {
+    align: left;
+    font-variant: small-caps;
+    font-style: italic;
+}
+
+.map-canvas .map_legend {
+    position:absolute;
+    // left:15px;
+    // top:65px;
+    z-index:10000;
+    width:100px;
+
+    background-color:#FFFFFF;
+    font-family: Arial, sans-serif;
+
+    margin: 10px;
+    border: 2px solid #000;
+}
+
+.map_legend h3 {
+        margin-top: 0;
+}
+.map_legend img {
+        vertical-align: middle;
+}
+
+.input-color {
+    position: relative;
+}
+.input-color input {
+    padding-left: 20px;
+}
+.input-color .color-box {
+    width: 10px;
+    height: 10px;
+    // display: inline-block;
+    background-color: #ccc;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+
+.footer_disclaimer {
+    text-align: left;
+}
+
+.footer_link {
+    text-align: right;
+}
+
+#disclaimer_link {
+    color:#E03434;
+}
+
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+#disclaimer_div {
+    text-align: justify;
+    font-style: italic;
+    width: 600px;
+    padding: 30px;
+    display: none;
+    background: #E1E1E1;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+}
+
+
+#disclaimer_text {
+    font-size: small;
+}
+
+#disclaimer_title {
+    font-size: large;
+    text-align: center;
+}
+
+.modal_close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url(../imgs/modal_close.png);
+    z-index: 2;
+    }
+
+.ol-zoom {
+  top: unset;
+  bottom: .5em;
+}
+
+.ol-scale-line {
+  left: 3em;
+  bottom: .5em;
+  padding: 5px;
+}

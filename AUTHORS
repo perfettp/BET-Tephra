@@ -1,0 +1,16 @@
+BET-Tephra@OV is a Python software package to compute and visualize long- and short- term eruption forecasting and probabilistic tephra hazard assessment of Campi Flegrei caldera. The tool is based on the procedure described by Selva et al. (2014) that combines the Bayesian Event Tree method (Marzocchi et al. 2008; 2010) and on the Fall3D tephra dispersal model (Costa et al. 2006; Folch et al., 2009).
+
+BET_Tephra@OV was realized by Dr. Perfetti with the contributions by Dr. Costa, Dr. Selva, Dr. Sandri, Dr. Macedonio, and Dr. Tonini, in the framework of the Italian Civil Protection Department (DPC) - INGV Research Project “OBIETTIVO 5 (V2): Implementazione nell’ambito delle attività di sorveglianza del vulcano Campi Flegrei di una procedura operativa per la stima in tempo quasi reale della probabilità di eruzione, probabilità di localizzazione della bocca eruttiva, e probabilità di accumulo delle ceneri al suolo in caso di eruzione di tipo esplosivo”, 2014-2015 (Responsible Dr. Giuseppe De Natale, Director of INGV - Osservatorio Vesuviano, Napoli), under the Coordination of Dr. Antonio Costa (INGV, Bologna).
+
+- Costa A., Macedonio G., Folch A. (2006) A three-dimensional Eulerian model for transport and deposition of volcanic ashes. Earth Planet. Sci. Lett., 241, 634/647, doi: 10.1016/j.epsl.2005.11.019
+- Folch A., Costa A., Macedonio G. (2009) FALL3D: A Computational Model for Volcanic Ash Transport and Deposition, Comput. Geosci., 35, 1334-1342, doi:10.1016/j.cageo.2008.08.008
+- Marzocchi W, Sandri L, Selva J (2008). BET_EF: a probabilistic tool for long- and short-term eruption forecasting, Bull. Volcan., 70, 623-632, doi:10.1007/s00445-007-0157-y
+- Marzocchi W, Sandri L, Selva J (2010), BET_VH: a probabilistic tool for long-term volcanic hazard assessment, Bull. Volcanol., 72 (6), 717-733, doi:10.1007/s00445-010-0357-8
+- Selva J., Costa A., Sandri L., Macedonio G., Marzocchi W. (2014) Probabilistic short-term volcanic hazard in phases of unrest: a case study for tephra fallout, J. Geophys. Res., 119 (12), 1-22, doi:10.1002/2014JB011252
+
+Copyright(C) 2021 Paolo Perfetti
+Copyright(C) 2015-2017 Paolo Perfetti, Roberto Tonini and Jacopo Selva
+
+Paolo Perfetti <paolo.perfetti@ingv.it>
+Roberto Tonini <roberto.tonini@ingv.it>
+Jacopo Selva <jacopo.selva@ingv.it>

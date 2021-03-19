@@ -1,0 +1,12 @@
+
+{% include 'blocks/state_volcano.html' %}
+
+{% include 'blocks/tephra_hazard.html' %}
+
+<script> window.onload=(function(oldLoad){
+                return function(){
+                    oldLoad && oldLoad();
+                    offset_tab_bind('#dashboard_offset_tabs');
+                    }
+                })(window.onload)
+</script>

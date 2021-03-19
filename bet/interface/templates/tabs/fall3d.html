@@ -1,0 +1,41 @@
+{% import 'bet_macros.html' as betm %}
+
+<div class="row">
+    <div class="col-lg-12">
+        {{ betm.offset_bar("fall3d_offset_tabs", "fall3d_", offset_dirs) }}
+    </div>
+</div>
+<div class="tab-content">
+    {% for off in offset_dirs %}
+        <div role="tabpanel" class="tab-pane fade" id="fall3d_{{off}}_tab">
+            <div class="row">
+                {% for img in fall3d_imgs[off] %}
+                    <div class="col-lg-4">
+                        <div class="col-lg-12 fall3d_block_title">
+                            {%set size = img.split('/')[-1].split('-')[0][2] %}
+                                Predicted tephra loading for a
+                            {% if size=='L' %}
+                                small
+                            {% elif size=='M' %}
+                                medium
+                            {% elif size=='H' %}
+                                large
+                            {% endif %}
+                            size eruption from a fixed vent
+                        </div>
+                        <div class="col-lg-12 fall3d_block">
+                            <img src="{{img}}" alt="{{img}}" class="img-responsive"/>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {%endfor%}
+</div>
+<script> window.onload=(function(oldLoad){
+                return function(){
+                    oldLoad && oldLoad();
+                    offset_tab_bind('#fall3d_offset_tabs');
+                    }
+                })(window.onload)
+</script>

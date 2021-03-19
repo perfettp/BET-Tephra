@@ -1,0 +1,48 @@
+{%- macro disclaimer(text) -%}
+    <div class="row">
+        <div  class="col-lg-12 footer_disclaimer">
+            <div id="disclaimer_div">
+                <p id="disclaimer_title">Inquadramento, esclusione di
+                    responsabilità e limiti di uso dei dati.</p>
+                <p id="disclaimer_text">{{text}}</p>
+                <a class="modal_close"
+                    style="background:{{url_for('static', filename='imgs/modal_close.png')}}" href="#"></a>
+            </div>
+            <a id="disclaimer_link" rel="leanModal" href="#disclaimer_div">
+                Inquadramento, esclusione di responsabilità e limiti di uso dei dati.
+            </a>
+        </div>
+    </div>
+    <script> window.onload=(function(oldLoad){
+                return function(){
+                    oldLoad && oldLoad();
+                    $("#disclaimer_link").leanModal({ overlay : 0.6,
+                                                closeButton: ".modal_close" });
+                    }
+                })(window.onload)
+    </script>
+{%- endmacro -%}
+
+
+{%- macro header_link(title, run_dir, rel_link, is_page=false) -%}
+    {% if is_page %}
+        {{title}}<span style="font-weight: bold; font-size:90%"><a
+        href="/{{run_dir}}{{rel_link}}">&infin;</a></span>
+    {% else %}
+        {{title}}<span style="font-weight: bold; font-size:90%"><a
+        href="/{{run_dir}}">&infin;</a></span>
+    {% endif %}
+{%- endmacro -%}
+
+{%- macro offset_bar(nav_id, tab_prefix, offset_dirs) -%}
+    <ul class="nav nav-pills" role="tablist" id="{{nav_id}}">
+            <li class="disabled ">
+                <a href="#"><span class="glyphicon glyphicon-time"
+                                  aria-hidden="true"></span> Time offset</a></li>
+            {% for off in offset_dirs %}
+            <li class="enabled"><a href="#{{tab_prefix}}{{off}}_tab"
+                                   data-toggle="tab">
+                {{off}}-{{off|int+24}}</a></li>
+            {% endfor %}
+    </ul>
+{%- endmacro -%}

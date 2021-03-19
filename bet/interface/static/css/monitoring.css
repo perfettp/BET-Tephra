@@ -1,0 +1,119 @@
+
+.date_arrow_prev, .date_arrow_next{
+    font-size: 2.6em;
+    font-weight: bold;
+    }
+
+.date_arrow_prev {
+    text-align: left;
+    }
+
+.date_arrow_next {
+    text-align: right;
+    }
+
+.date_title {
+    font-size: 2.6em;
+    /*  font-weight: bold; */
+    font-style: italic;
+    }
+
+.sv_title, .th_title {
+    font-weight: bold;
+    font-variant: small-caps;
+    }
+
+.sv_block_title, .th_block_title {
+    text-align: left;
+}
+
+.sv_title, .th_title {
+    font-size: 2.6em;
+}
+
+.th_block_title , .fall3d_block_title, .sv_block_title{
+    font-size: 2.2em;
+    line-height: 1.1;
+}
+
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+}
+
+.sv_row, .sv_title, .sv_header {
+    background-color: #D6ECD2;
+}
+
+.vh_row, .offset_header, .vh_title , .th_header {
+    background-color: #F7EDBE;
+}
+
+.bet_container {
+    background-color: #EAEAEA;
+}
+
+.sv_row, .vh_row {
+    padding-bottom: 0.5em;
+}
+
+.map-canvas  {
+        height:331px;
+}
+
+.guide_title {
+  font-size: 2.2em;
+  text-align: center;
+  font-family: "Times New Roman", serif;
+}
+
+.guide_col {
+    padding-left: 8em;
+    padding-right: 8em;
+}
+@media only screen and (min-width: 1200px) {
+
+
+    .sv_title, .th_title, .guide_title {
+        font-size: 2.2em;
+        font-weight: bold;
+        font-variant: small-caps;
+    }
+
+
+    .th_block_title, .sv_block_title, .fall3d_block_title {
+        font-size: 1.6em;
+        height:2.3em;
+    }
+
+}
+
+@media only screen and (min-width: 1750px) {
+
+    .sv_title, .th_title {
+        font-size: 2.6em;
+        font-weight: bold;
+        font-variant: small-caps;
+    }
+
+    .guide_title {
+        font-size: 2.4em;
+        font-weight: bold;
+
+    }
+    .th_block_title, .sv_block_title, .fall3d_block_title {
+        font-size: 2em;
+        height:2.3em;
+    }
+
+}
+
