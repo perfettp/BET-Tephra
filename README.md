@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/349443158.svg)](https://zenodo.org/badge/latestdoi/349443158)
+
 # BET-Tephra
 
 ## Introduction
