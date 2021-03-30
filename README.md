@@ -3,7 +3,7 @@
 # BET-Tephra
 
 ## Introduction
-BET-Tephra@OV is a Python software package to compute and visualize long- and short- term eruption forecasting and probabilistic tephra hazard assessment of Campi Flegrei caldera. The tool is based on the procedure described by Selva et al. (2014) that combines the Bayesian Event Tree method (Marzocchi et al. 2008; 2010) and on the Fall3D tephra dispersal model (Costa et al. 2006; Folch et al., 2009).
+BET-Tephra@OV is a Python software package to compute and visualize long- and short- term eruption forecasting and probabilistic tephra hazard assessment of Campi Flegrei caldera. The tool is based on the procedure described by Selva et al. (2014) that combines the Bayesian Event Tree method (Marzocchi et al. 2008; 2010) and the Fall3D tephra dispersal model (Costa et al. 2006; Folch et al., 2009).
 
 ## The Bayesian Event Tree model
 BET is a probabilistic model that merges all kinds of volcanological information from theoretical/empirical models, geological and historical data, and monitoring observations to obtain probability of any relevant volcanic event. Such probabilities represent an homogeneous and quantitative synthesis of the present knowledge about the volcano.
